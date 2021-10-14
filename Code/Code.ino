@@ -4,15 +4,17 @@
 // Turn off the LED if the cable is unplugged.
 
 void setup() {
-  // put your setup code here, to run once:
+  // LOW=plugged in HIGH=unplugged
   pinMode(LED_BUILTIN, OUTPUT);
   pinMode(7, INPUT_PULLUP);
 }
 
 void loop() {
-  //if pin2 plugged LED should be on
+  //if pin2 plugged in, LED should be blinking
   if (digitalRead(7)  == LOW) {
     digitalWrite(LED_BUILTIN, HIGH);
+    delay(500);
+    digitalWrite(LED_BUILTIN, LOW);
     delay(500);
   }
   
